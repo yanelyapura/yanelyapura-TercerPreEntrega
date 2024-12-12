@@ -8,7 +8,7 @@ Este proyecto fue desarrollado en **Django** como parte de la práctica de la cu
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone https://github.com/usuario/proyecto-biblioteca.git
+   git clone https://github.com/yanelyapura/yanelyapura-TercerPreEntrega
    cd proyecto-biblioteca
    ```
 
