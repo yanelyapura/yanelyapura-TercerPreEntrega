@@ -8,8 +8,7 @@ Este proyecto fue desarrollado en **Django** como parte de la práctica de la cu
 
 1. **Clonar el repositorio:**
    ```bash
-   git clone https://github.com/yanelyapura/yanelyapura-TercerPreEntrega
-   cd proyecto-biblioteca
+   git clone https://github.com/yanelyapura/yanelyapura-TercerPreEntrega .
    ```
 
 2. **Crear y activar el entorno virtual:**
