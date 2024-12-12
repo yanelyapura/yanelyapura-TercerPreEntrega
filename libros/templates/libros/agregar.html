@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Agregar Datos</h2>
+
+    <!-- Formulario para Autor -->
+    <div class="card mb-4 p-4 shadow-sm">
+        <h4 class="text-primary mb-3">Agregar Autor</h4>
+        <form method="post" class="row g-3">
+            {% csrf_token %}
+            {% for field in form_autor %}
+            <div class="col-md-6">
+                {{ field.label_tag }}
+                {{ field }}
+                {% for error in field.errors %}
+                <small class="text-danger">{{ error }}</small>
+                {% endfor %}
+            </div>
+            {% endfor %}
+            <div class="col-12 text-end">
+                <button type="submit" name="submit_autor" class="btn btn-primary">Agregar Autor</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Formulario para Género -->
+    <div class="card mb-4 p-4 shadow-sm">
+        <h4 class="text-success mb-3">Agregar Género</h4>
+        <form method="post" class="row g-3">
+            {% csrf_token %}
+            {% for field in form_genero %}
+            <div class="col-md-12">
+                {{ field.label_tag }}
+                {{ field }}
+                {% for error in field.errors %}
+                <small class="text-danger">{{ error }}</small>
+                {% endfor %}
+            </div>
+            {% endfor %}
+            <div class="col-12 text-end">
+                <button type="submit" name="submit_genero" class="btn btn-success">Agregar Género</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Formulario para Libro -->
+    <div class="card p-4 shadow-sm">
+        <h4 class="text-warning mb-3">Agregar Libro</h4>
+        <form method="post" class="row g-3">
+            {% csrf_token %}
+            {% for field in form_libro %}
+            <div class="col-md-6">
+                {{ field.label_tag }}
+                {{ field }}
+                {% for error in field.errors %}
+                <small class="text-danger">{{ error }}</small>
+                {% endfor %}
+            </div>
+            {% endfor %}
+            <div class="col-12 text-end">
+                <button type="submit" name="submit_libro" class="btn btn-warning">Agregar Libro</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

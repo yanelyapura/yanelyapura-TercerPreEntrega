@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center mb-4 text-primary">Buscar Libros</h2>
+    
+    <!-- Formulario de búsqueda -->
+    <form method="get" class="d-flex justify-content-center mb-4">
+        <input type="text" name="query" placeholder="Buscar por título" 
+               value="{{ request.GET.query|default_if_none:'' }}" 
+               class="form-control me-2" style="max-width: 400px;">
+        <button type="submit" class="btn btn-primary">
+            <i class="fas fa-search"></i> Buscar
+        </button>
+    </form>
+
+    <!-- Resultados -->
+    {% if resultados %}
+    <div class="list-group">
+        {% for libro in resultados %}
+        <div class="list-group-item list-group-item-action">
+            <h5 class="mb-1 text-dark"><strong>{{ libro.titulo }}</strong></h5>
+            <p class="mb-1 text-muted">
+                Autor: {{ libro.autor.nombre }} <br>
+                Género: {{ libro.genero.nombre }} <br>
+                Fecha de Publicación: {{ libro.fecha_publicacion|date:"d/m/Y" }}
+            </p>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p class="text-center text-muted mt-4">No se encontraron resultados</p>
+    {% endif %}
+</div>
+{% endblock %}
